@@ -1,0 +1,18 @@
+
+
+<form method="post">
+    {% csrf_token %}
+     
+ 
+ 
+ 
+    <p>Вы уверены что хотите удалить машину "{{ object }}"?</p>
+     
+     
+     
+     
+        <input type="submit" value="Да">
+        <input type="button" onclick="history.back();" value="Назад"/>
+</form>
+
+

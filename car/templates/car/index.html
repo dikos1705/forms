@@ -1,0 +1,42 @@
+{% extends 'car/base.html'%}
+{% load static %}
+{%block content%}
+<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+    <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+    <span class="fs-4">Главная </span>
+  </a>
+
+  <ul class="nav nav-pills">
+    <!-- <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Главная</a></li> -->
+    <li class="nav-item"><a href="#" class="nav-link">О нас</a></li>
+    <li class="nav-item"><a href="add/" class="nav-link">Cоздать</a></li>
+  </ul>
+</header>
+
+
+<!-- --------- -->
+<div class="container px-4 py-5" id="featured-3">
+  <h2 class="pb-2 border-bottom">Машины</h2>
+ 
+    <div class="feature col">
+      <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+        <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"></use></svg>
+      </div>
+      {% for c in cars%} 
+      <h2> <a href="{{c.pk}}/delete"> {{c.mark}}</a></h2>
+      <h2> {{c.model}}</h2>
+      <p>{{c.description}}</p>
+      <h3> {{c.price}}</h3>
+                    
+      {%if c.photo%}
+      <img width="400" src="{{c.photo.url}}" alt="Photo of {{c.mark}}" >
+      {%endif%}
+    </div>
+    {%endfor%}
+
+</div>
+
+
+
+{%endblock%}
