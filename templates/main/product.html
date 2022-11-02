@@ -1,0 +1,46 @@
+{% extends 'main/base.html'%}
+{% load static %}
+{%block content%}
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <div class="card shadow-sm">
+            {%if p.photo%}
+            <img width="400" src="{{p.photo.url}}" alt="Photo of {{p.name}}" >
+            {%endif%}
+            <div class="card-body">
+              <p class="card-text"> {{p.name}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a class="btn btn-sm btn-outline-secondary" href="{{p.pk}}/">Перейти к товару</a> 
+                  <!-- <button type="button" onclick="{{p.pk}}" class="btn btn-sm btn-outline-secondary">Перейти к товару</button> -->
+                </div>
+                
+                
+                
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">{{p.description}}</small>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">{{p.date}}</small>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted"><b>Цена {{p.price}} тенге </small>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+  
+      </div>
+    </div>
+  </div>
+  <a class="btn btn-sm btn-outline-secondary" href="{% url 'index' %}"> основаная страница</a>
+
+
+{%endblock%}

@@ -14,6 +14,9 @@ class Employee(models.Model):
     class SexChoices(models.TextChoices):
         MALE = 'm', 'Мужской'
         FEMALE = 'f', 'Женский'
+    
+    schoiches = [ ('m', 'Мужской'),
+                    ('f', 'Женский')]
 
     entry_date = models.DateField(auto_now_add=True)
     sex = models.CharField(
@@ -36,7 +39,9 @@ class Employee(models.Model):
     class Meta:
         verbose_name = _("employee")
         verbose_name_plural = _("employees")
-
+        # dbname = "employees"
+    
+    
     def __str__(self):
         return f'{self.user}: {self.get_sex_display()} ({self.entry_date})'
 
